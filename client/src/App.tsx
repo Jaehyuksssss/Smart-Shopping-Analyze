@@ -1,5 +1,7 @@
+import ShoppingInsight from './pages/ShoppingInsight';
+
 function App() {
-  return <div className="App">hello world</div>;
+  return <ShoppingInsight />;
 }
 
 export default App;
