@@ -7,7 +7,13 @@ import {
   StyledFormContainer,
   StyledSelectWrapper,
 } from './StyledFormContainer';
-import { AGE_OPTIONS, CATEGORY_LIST } from '../../utils/constants';
+import {
+  AGE_OPTIONS,
+  CATEGORY_LIST,
+  DEVICE_OPTIONS,
+  GENDER_OPTIONS,
+  TIME_UNIT_OPTIONS,
+} from '../../utils/constants';
 
 export default function FormContainer() {
   return (
@@ -16,12 +22,12 @@ export default function FormContainer() {
         <RangePickerComponent />
         <SelectCategory options={CATEGORY_LIST} />
         <InputBox />
-        <RadioButton />
+        <RadioButton options={TIME_UNIT_OPTIONS} />
       </StyledSelectWrapper>
       <StyledSelectWrapper>
         <SelectCategory options={AGE_OPTIONS} />
-        <RadioButton />
-        <RadioButton />
+        <RadioButton options={GENDER_OPTIONS} />
+        <RadioButton options={DEVICE_OPTIONS} />
         <SubmitButton />
       </StyledSelectWrapper>
     </StyledFormContainer>
