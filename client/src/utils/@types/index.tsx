@@ -6,6 +6,7 @@ export interface LayoutDefaultProps {
 
 export interface SelectCategoryProps {
   options: { key: string; label: string }[];
+  placeholder: string;
 }
 
 export interface RadioButtonProps {

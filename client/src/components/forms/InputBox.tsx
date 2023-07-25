@@ -1,8 +1,9 @@
 import { Input } from 'antd';
+import { KEYWORD } from '../../utils/constants';
 export default function InputBox() {
   return (
     <div>
-      <Input />
+      <Input placeholder={KEYWORD} />
     </div>
   );
 }

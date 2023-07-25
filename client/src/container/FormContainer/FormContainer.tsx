@@ -9,7 +9,9 @@ import {
 } from './StyledFormContainer';
 import {
   AGE_OPTIONS,
+  CATEGORY,
   CATEGORY_LIST,
+  DEFAULT_AGE,
   DEVICE_OPTIONS,
   GENDER_OPTIONS,
   TIME_UNIT_OPTIONS,
@@ -20,12 +22,12 @@ export default function FormContainer() {
     <StyledFormContainer>
       <StyledSelectWrapper>
         <RangePickerComponent />
-        <SelectCategory options={CATEGORY_LIST} />
+        <SelectCategory options={CATEGORY_LIST} placeholder={CATEGORY} />
         <InputBox />
         <RadioButton options={TIME_UNIT_OPTIONS} />
       </StyledSelectWrapper>
       <StyledSelectWrapper>
-        <SelectCategory options={AGE_OPTIONS} />
+        <SelectCategory options={AGE_OPTIONS} placeholder={DEFAULT_AGE} />
         <RadioButton options={GENDER_OPTIONS} />
         <RadioButton options={DEVICE_OPTIONS} />
         <SubmitButton />
