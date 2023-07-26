@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { SubmitProps } from '../../utils/@types';
 
-export default function SubmitButton() {
+export default function SubmitButton({ onSubmit }: SubmitProps) {
   return (
     <StyledButtonWrapper>
-      <StyledButton>Submit</StyledButton>
+      <StyledButton onClick={onSubmit}>Submit</StyledButton>
     </StyledButtonWrapper>
   );
 }

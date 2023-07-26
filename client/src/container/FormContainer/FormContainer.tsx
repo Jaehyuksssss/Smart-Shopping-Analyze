@@ -20,18 +20,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import { useRangePicker } from '../../hooks/useRangePicker';
 import { useSelectCategory } from '../../hooks/useSelectCategory';
-import { setAge, setDevice, setInput } from '../../redux/slices/shoppingslice';
+import {
+  setAge,
+  setDevice,
+  setGender,
+  setInput,
+  setResponseData,
+  setTimeUnit,
+} from '../../redux/slices/shoppingslice';
+
+import { useFormSubmit } from '../../hooks/useFormSubmit';
 
 export default function FormContainer() {
   const { rangePickerValue, setRangePicker } = useRangePicker();
   const { categoryValue, setCategoryValue } = useSelectCategory();
-
   const dispatch = useDispatch();
 
   const shoppingValue = useSelector((state: RootState) => state.shopping.value);
 
-  const { age, category, device, gender, input, timeunit } = shoppingValue;
-  console.log(shoppingValue);
+  const handleSubmit = () => {
+    useFormSubmit(shoppingValue, rangePickerValue, dispatch);
+  };
+
   return (
     <StyledFormContainer>
       <StyledSelectWrapper>
@@ -51,7 +61,7 @@ export default function FormContainer() {
         />
         <RadioButton
           options={TIME_UNIT_OPTIONS}
-          onChange={value => dispatch(setDevice(value))}
+          onChange={value => dispatch(setTimeUnit(value))}
         />
       </StyledSelectWrapper>
       <StyledSelectWrapper>
@@ -63,13 +73,13 @@ export default function FormContainer() {
         />
         <RadioButton
           options={GENDER_OPTIONS}
-          onChange={value => dispatch(setDevice(value))}
+          onChange={value => dispatch(setGender(value))}
         />
         <RadioButton
           options={DEVICE_OPTIONS}
           onChange={value => dispatch(setDevice(value))}
         />
-        <SubmitButton />
+        <SubmitButton onSubmit={handleSubmit} />
       </StyledSelectWrapper>
     </StyledFormContainer>
   );
