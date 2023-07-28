@@ -9,7 +9,7 @@ const initialState: ShoppingState = {
     category: '',
     input: '',
     age: '',
-    timeunit: '',
+    timeunit: 'date',
     gender: '',
     device: '',
   },

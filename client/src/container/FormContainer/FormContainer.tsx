@@ -38,9 +38,8 @@ export default function FormContainer() {
 
   const shoppingValue = useSelector((state: RootState) => state.shopping.value);
 
-  const handleSubmit = () => {
+  const handleSubmit = () =>
     useFormSubmit(shoppingValue, rangePickerValue, dispatch);
-  };
 
   return (
     <StyledFormContainer>

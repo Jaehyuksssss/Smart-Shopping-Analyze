@@ -15,8 +15,9 @@ export const useFormSubmit = async (
   if (!isValid) {
     return;
   }
-
   const { age, category, device, gender, input, timeunit } = shoppingValue;
+  console.log(gender);
+
   const todayUnix = dayjs(new Date()).unix();
   const [startDate, endDate] = rangePickerValue?.map(
     it => it?.format('YYYY-MM-DD'),
@@ -35,6 +36,7 @@ export const useFormSubmit = async (
     alert('시간 범위가 올바르지 않습니다.');
     return;
   }
+  console.log('ㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴㅇㅁㄴ', gender);
 
   try {
     const response = await axios.post('http://localhost:3001/api', {

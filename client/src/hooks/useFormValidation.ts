@@ -1,29 +1,26 @@
 import { ShoppingState } from '../utils/@types';
 
+type Props = {
+  [T in keyof ShoppingState['value']]: string;
+};
+
+const alertObj: Props = {
+  datePicker: '날짜를 선택해주세요',
+  category: '카테고리를 선택해주세요.',
+  input: '키워드를 입력해주세요.',
+  timeunit: '시간대를 선택해주세요.',
+  age: '시간대를 선택해주세요',
+  gender: '시간대를 선택해주세요.',
+  device: '시간대를 선택해주세요.',
+};
+
 export const useFormValidation = (shoppingValue: ShoppingState['value']) => {
-  for (const [key, item] of Object.entries(shoppingValue)) {
+  for (const [key, item] of Object.entries(shoppingValue)
+    .filter(([key, _]) => key !== 'gender')
+    .filter(([key, _]) => key !== 'device')) {
     console.log(shoppingValue);
     if (!item) {
-      switch (key) {
-        case 'datePicker':
-          alert('날짜를 선택해주세요.');
-          break;
-        case 'category':
-          alert('카테고리를 선택해주세요.');
-          break;
-        case 'input':
-          alert('키워드를 입력해주세요.');
-          break;
-        case 'timeunit':
-          alert('시간대를 선택해주세요.');
-          break;
-        case 'gender':
-          alert('성별을 선택해주세요.');
-          break;
-        case 'device':
-          alert('장치를 선택해주세요.');
-          break;
-      }
+      alert(alertObj[key]);
       return false;
     }
   }

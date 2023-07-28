@@ -4,7 +4,7 @@ import { RadioButtonProps } from '../../utils/@types';
 
 export default function RadioButton({ options, onChange }: RadioButtonProps) {
   const [value, setValue] = useState(options[0].key);
-  console.log(value);
+
   const onHandleChangeRadioButton = (e: RadioChangeEvent) => {
     const value = e.target.value;
     onChange(value);
