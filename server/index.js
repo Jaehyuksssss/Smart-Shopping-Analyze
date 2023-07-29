@@ -1,34 +1,20 @@
-import express, { response } from "express";
-import dotenv from "dotenv";
-import morgan from "morgan";
-import cors from "cors";
 import axios from "axios";
-dotenv.config();
 
-const app = express();
-
-// middleware
-app.use(express.json());
-app.use(morgan("tiny"));
-app.use(cors());
-
-app.get("/health", (req, res) => {
-  res.send("success");
-});
-
-app.post("/api", async (req, res) => {
+export const handler = async (event) => {
+  const req = JSON.parse(event.body);
+  console.log(req);
   try {
     const response = await axios.post(
       process.env.NAVER_BASE_URL,
       {
-        startDate: req.body.startDate,
-        endDate: req.body.endDate,
-        timeUnit: req.body.timeUnit,
-        category: req.body.category,
-        keyword: req.body.keyword,
-        device: req.body.device,
-        gender: req.body.gender,
-        ages: req.body.ages,
+        startDate: req.startDate,
+        endDate: req.endDate,
+        timeUnit: req.timeUnit,
+        category: req.category,
+        keyword: req.keyword,
+        device: req.device,
+        gender: req.gender,
+        ages: req.ages,
       },
       {
         headers: {
@@ -38,13 +24,26 @@ app.post("/api", async (req, res) => {
         },
       }
     );
-    return res.status(200).json(response.data);
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify(response.data),
+    };
   } catch (e) {
     console.error(e);
-    return res.status(500).json(null);
   }
-});
 
-app.listen(process.env.PORT, () => {
-  console.log(`connect to ${process.env.PORT}`);
-});
+  return {
+    statusCode: 200,
+    body: JSON.stringify(response.data),
+  };
+};
+
+// export const handler = async (event) => {
+//   // TODO implement
+//   const response = {
+//     statusCode: 200,
+//     body: JSON.stringify('Hello from Lambda!'),
+//   };
+//   return response;
+// };
