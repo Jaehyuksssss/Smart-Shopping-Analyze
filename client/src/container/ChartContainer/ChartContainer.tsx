@@ -1,16 +1,14 @@
-// ChartContainer.tsx
-import React from 'react';
 import styled from 'styled-components';
 import SimpleLineChart from '../../components/lineCharts/SimpleLineChart';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/reducers';
 import { useGroupsValue } from '../../hooks/useGroupsValue';
 import { Metric } from '../../utils/@types';
+import EmptyResult from '../../components/lineCharts/EmptyResult';
 
 export default function ChartContainer() {
   const { groupsValue } = useGroupsValue();
 
-  // Redux store에서 데이터를 가져와서 가공
   const chartData = useSelector((state: RootState) => {
     if (!state.shopping.responseData?.results) {
       return [];
@@ -38,13 +36,16 @@ export default function ChartContainer() {
 
   return (
     <StyledChartContainer>
-      {/* SimpleLineChart 컴포넌트에 데이터 전달 */}
-      <SimpleLineChart
-        metrics={chartData}
-        groups={groupsValue}
-        groupName="대"
-        xAxisDataKey="period"
-      />
+      {chartData.length ? (
+        <SimpleLineChart
+          metrics={chartData}
+          groups={groupsValue}
+          groupName="대"
+          xAxisDataKey="period"
+        />
+      ) : (
+        <EmptyResult />
+      )}
     </StyledChartContainer>
   );
 }
@@ -54,6 +55,3 @@ export const StyledChartContainer = styled.div`
   margin-top: 3rem;
   justify-content: center;
 `;
-
-// SimpleLineChart 컴포넌트는 동일한 코드로 유지
-// SimpleLineChart.tsx

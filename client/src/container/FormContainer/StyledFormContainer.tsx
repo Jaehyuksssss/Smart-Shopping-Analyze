@@ -8,6 +8,12 @@ export const StyledFormContainer = styled.div`
 `;
 
 export const StyledSelectWrapper = styled.div`
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
   display: flex;
   gap: 2rem;
+  align-items: center;
+  justify-content: center;
 `;
