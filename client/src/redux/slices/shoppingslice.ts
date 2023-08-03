@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Dayjs } from 'dayjs';
 import { RangeValue } from 'rc-picker/lib/interface';
-import { ResponseData, ShoppingState } from '../../utils/@types';
+import { Ages, ResponseData, ShoppingState } from '../../utils/@types';
 
 const initialState: ShoppingState = {
   value: {
     datePicker: null,
     category: '',
     input: '',
-    age: '',
+    age: [],
     timeunit: 'date',
     gender: '',
     device: '',
@@ -41,7 +41,7 @@ const shoppingSlice = createSlice({
         input: action.payload,
       };
     },
-    setAge: (state, action: PayloadAction<string>) => {
+    setAge: (state, action: PayloadAction<Ages[]>) => {
       state.value = {
         ...state.value,
         age: action.payload,

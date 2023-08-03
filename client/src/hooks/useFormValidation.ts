@@ -18,7 +18,6 @@ export const useFormValidation = (shoppingValue: ShoppingState['value']) => {
   for (const [key, item] of Object.entries(shoppingValue)
     .filter(([key, _]) => key !== 'gender')
     .filter(([key, _]) => key !== 'device')) {
-    console.log(shoppingValue);
     if (!item) {
       alert(alertObj[key]);
       return false;

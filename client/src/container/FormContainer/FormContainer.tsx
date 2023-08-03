@@ -21,23 +21,22 @@ import { RootState } from '../../redux/reducers';
 import { useRangePicker } from '../../hooks/useRangePicker';
 import { useSelectCategory } from '../../hooks/useSelectCategory';
 import {
-  setAge,
   setDevice,
   setGender,
   setInput,
-  setResponseData,
   setTimeUnit,
 } from '../../redux/slices/shoppingslice';
 
 import { useFormSubmit } from '../../hooks/useFormSubmit';
+import { useGroupsValue } from '../../hooks/useGroupsValue';
 
 export default function FormContainer() {
   const { rangePickerValue, setRangePicker } = useRangePicker();
   const { categoryValue, setCategoryValue } = useSelectCategory();
+  const { groupsValue, setGroupsValue } = useGroupsValue();
   const dispatch = useDispatch();
 
   const shoppingValue = useSelector((state: RootState) => state.shopping.value);
-
   const handleSubmit = () =>
     useFormSubmit(shoppingValue, rangePickerValue, dispatch);
 
@@ -65,7 +64,7 @@ export default function FormContainer() {
       </StyledSelectWrapper>
       <StyledSelectWrapper>
         <SelectCategory
-          onChange={values => dispatch(setAge(values))}
+          onChange={setGroupsValue}
           options={AGE_OPTIONS}
           placeholder={DEFAULT_AGE}
           isMultiple={true}

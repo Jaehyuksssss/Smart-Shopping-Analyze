@@ -38,12 +38,3 @@ export const handler = async (event) => {
     body: JSON.stringify(response.data),
   };
 };
-
-// export const handler = async (event) => {
-//   // TODO implement
-//   const response = {
-//     statusCode: 200,
-//     body: JSON.stringify('Hello from Lambda!'),
-//   };
-//   return response;
-// };

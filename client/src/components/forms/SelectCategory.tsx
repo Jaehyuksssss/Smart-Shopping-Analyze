@@ -8,7 +8,7 @@ export default function SelectCategory({
   placeholder,
   isMultiple,
 }: SelectCategoryProps) {
-  const handleSelectChange = (value: string) => {
+  const handleSelectChange = (value: string | string[]) => {
     if (onChange) {
       onChange(value);
     }
