@@ -13,7 +13,7 @@ const HeaderContiner = styled.div`
   height: 70px;
   display: flex;
   align-items: center;
-  background-color: ${theme.BLUE};
+  background-color: ${theme.GREEN};
 `;
 
 const HeaderTitle = styled.span`

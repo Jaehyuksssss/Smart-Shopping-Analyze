@@ -19,14 +19,15 @@ interface SimpleLineChartProps {
   xAxisDataKey: string;
 }
 
-const ColorParmas = {
-  '10': 'blue',
-  '20': 'red',
-  '30': 'black',
-  '40': 'gray',
-  '50': 'green',
-  '60': '#2C3E50 ',
+const ColorParams = {
+  '20': '#FF5733', // 빨간색
+  '50': '#4CAF50', // 초록색
+  '10': '#3498DB', // 파란색
+  '30': '#212121', // 검정색
+  '40': '#808080', // 회색
+  '60': '#2C3E50', // 다크 그레이
 };
+
 const SimpleLineChart: React.FC<SimpleLineChartProps> = ({
   metrics,
   groups,
@@ -64,7 +65,7 @@ const SimpleLineChart: React.FC<SimpleLineChartProps> = ({
             key={group}
             type="monotone"
             dataKey={group}
-            stroke={ColorParmas[group]}
+            stroke={ColorParams[group]}
           />
         ))}
       </LineChart>

@@ -1,5 +1,7 @@
 const theme = {
   BLUE: '#595EDA',
+  GREEN_LIGHT: '#a0efc3',
+  GREEN: '#00b869',
   BLUE_DARK: '#2c83e9',
   GREY: '#E7E7E7',
   GREY_LIGHT: '#F9FAFC',

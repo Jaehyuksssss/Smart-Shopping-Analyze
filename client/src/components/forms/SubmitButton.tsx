@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { SubmitProps } from '../../utils/@types';
+import { theme } from '../../styles';
 
 export default function SubmitButton({ onSubmit }: SubmitProps) {
   return (
@@ -23,11 +24,11 @@ const StyledButton = styled.button`
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  background-color: rgba(108, 114, 255, 0.8);
+  background-color: ${theme.GREEN_LIGHT};
   color: #fff;
 
   &:hover {
-    background-color: #4a4fff;
+    background-color: ${theme.GREEN};
   }
 
   @media screen and (max-width: 768px) {
