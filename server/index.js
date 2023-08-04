@@ -2,7 +2,6 @@ import axios from "axios";
 
 export const handler = async (event) => {
   const req = JSON.parse(event.body);
-  console.log(req);
   try {
     const response = await axios.post(
       process.env.NAVER_BASE_URL,

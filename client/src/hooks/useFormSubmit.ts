@@ -57,8 +57,6 @@ export const useFormSubmit = async (
     );
     const responseData: ResponseData = JSON.parse(response.data.body);
 
-    console.log(responseData);
-
     dispatch(setResponseData(JSON.parse(response.data.body)));
   } catch (error) {
     console.error(error);

@@ -9,7 +9,6 @@ export function useGroupsValue() {
   );
 
   const dispatch = useDispatch();
-  console.log(groupsValue);
   const setGroupsValue = (value: Ages[]) => {
     dispatch(setAge(value));
   };
