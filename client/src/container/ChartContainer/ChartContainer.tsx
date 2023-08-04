@@ -15,6 +15,7 @@ export default function ChartContainer() {
     }
 
     const m: Map<keyof Metric, Metric> = new Map();
+    console.log('a');
     for (const { period, ratio, group } of state.shopping.responseData
       .results[0].data) {
       if (m.has(period)) {

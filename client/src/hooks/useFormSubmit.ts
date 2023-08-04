@@ -38,7 +38,7 @@ export const useFormSubmit = async (
 
   try {
     const response = await axios.post(
-      'http://localhost:3001/api',
+      'https://pi8flctl21.execute-api.ap-northeast-2.amazonaws.com/prod/shopping',
       {
         startDate: startDate,
         endDate: endDate,
@@ -55,10 +55,11 @@ export const useFormSubmit = async (
         },
       },
     );
-    const responseData: ResponseData = response.data;
+    const responseData: ResponseData = JSON.parse(response.data.body);
 
     console.log(responseData);
-    dispatch(setResponseData(responseData));
+
+    dispatch(setResponseData(JSON.parse(response.data.body)));
   } catch (error) {
     console.error(error);
   }
