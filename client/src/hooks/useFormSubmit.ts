@@ -1,10 +1,11 @@
 import dayjs, { Dayjs } from 'dayjs';
 import { RangeValue } from 'rc-picker/lib/interface';
-import { ResponseData, ShoppingState } from '../utils/@types';
+import { ShoppingState } from '../utils/@types';
 import { useFormValidation } from './useFormValidation';
 import { Dispatch } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { setResponseData } from '../redux/slices/shoppingslice';
+import { getEnv } from '../utils/getEnv';
 
 export const useFormSubmit = async (
   shoppingValue: ShoppingState['value'],
@@ -38,7 +39,7 @@ export const useFormSubmit = async (
 
   try {
     const response = await axios.post(
-      'https://pi8flctl21.execute-api.ap-northeast-2.amazonaws.com/prod/shopping',
+      getEnv().REACT_APP_SHOPPING_URL,
       {
         startDate: startDate,
         endDate: endDate,
@@ -55,7 +56,6 @@ export const useFormSubmit = async (
         },
       },
     );
-    const responseData: ResponseData = JSON.parse(response.data.body);
 
     dispatch(setResponseData(JSON.parse(response.data.body)));
   } catch (error) {

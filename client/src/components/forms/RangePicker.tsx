@@ -1,5 +1,5 @@
 import { DatePicker } from 'antd';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import { RangeValue } from 'rc-picker/lib/interface';
 import { RangePickerComponentProps } from '../../utils/@types';
 

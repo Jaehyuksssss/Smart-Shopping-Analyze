@@ -32,8 +32,8 @@ import { useGroupsValue } from '../../hooks/useGroupsValue';
 
 export default function FormContainer() {
   const { rangePickerValue, setRangePicker } = useRangePicker();
-  const { categoryValue, setCategoryValue } = useSelectCategory();
-  const { groupsValue, setGroupsValue } = useGroupsValue();
+  const { setCategoryValue } = useSelectCategory();
+  const { setGroupsValue } = useGroupsValue();
   const dispatch = useDispatch();
 
   const shoppingValue = useSelector((state: RootState) => state.shopping.value);

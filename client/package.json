@@ -58,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/styled-components": "^5.1.26",
     "eslint-plugin-prettier": "^5.0.0-alpha.1"
   }
