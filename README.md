@@ -52,7 +52,7 @@ cd client && npm install && npm start
 
 - AWS API Gateway 탭에서 CORS option에, Access-Control-Allow-Origin에 \* 을 입력하고 저장해주어 모든 오리진을 허용하여 cors를 해결하였습니다.
 
-- 자세한 내용은 블로그에 기재하겠습니다.
+- 자세한 내용은 블로그에 기재.
 
 ### 5. rechart.ts
 
