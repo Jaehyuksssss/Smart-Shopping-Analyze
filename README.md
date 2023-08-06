@@ -11,7 +11,14 @@
 - styled-components,Antd
 - recharts
 
+## 배포
+
+- front-end : Vercel
+- server : AWS lamda , AWS API Gateway
+
 ## 설치 및 실행 방법
+
+- 링크 : [shopping-insight](https://smart-shopping-analyze-f4uv-k7zw23l7a-jaehyuksssss.vercel.app/)
 
 ```
 ## Express Server
@@ -38,12 +45,14 @@ cd client && npm install && npm start
 
 ### 3. .env
 
-- API KEY들을 .env 파일에 저장한 후 import 하여 사용하고 gitignore 파일에 .env를 저장하였습니다.
+- URL 들을 .env 파일에 저장한 후 import 하여 사용하고 gitignore 파일에 .env를 저장하였습니다.
+- lamda , vercel에 각각 환경변수를 저장하여 배포하였습니다.
 
 ### 4. cors 에러 해결
 
-- express server를 proxy server로 두어서 통신을 하게 했고, express server는 cors를 허용하여 client 요청을 대신 처리하게 해 주었습니다.
-- 네이버 open api를 사용하다 보니 여러가지 cors에러를 해결하기 위한 방법 중 proxy server를 두는것을 선택했습니다.
+- AWS API Gateway 탭에서 CORS option에, Access-Control-Allow-Origin에 \* 을 입력하고 저장해주면 모든 오리진을 허용하여 cors를 해결하였습니다.
+
+- 자세한 내용은 블로그에 기재하겠습니다.
 
 ### 5. rechart.ts
 
@@ -55,8 +64,10 @@ cd client && npm install && npm start
 
 - 연령별 트렌드 조회의 파라미터 **ages** 를 **다중 선택**할 수 있도록 구현였습니다.
 
-### 선택 구현사항
+### 7.ETC
 
 - [v] Antd를 활용하여 각종 form들을 사용했습니다.(select,rangepicker,input,radiobutton 등 )
 
 - [v] custom hooks를 사용하였습니다.
+
+- 각종 form들을 재사용할 수 있도록 의존성을 낮춰 구현하였습니다.
