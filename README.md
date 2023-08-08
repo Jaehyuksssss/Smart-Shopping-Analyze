@@ -20,7 +20,7 @@
 
 - 링크 : [shopping-insight](https://smart-shopping-analyze-f4uv-k7zw23l7a-jaehyuksssss.vercel.app/)
 
-- 회고 :[회고](https://jaehyuksss.tistory.com/26)
+- 회고 : [회고](https://jaehyuksss.tistory.com/26)
 
 ```
 ## Express Server
